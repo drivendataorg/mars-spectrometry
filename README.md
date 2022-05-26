@@ -1,7 +1,7 @@
 # mars-spectrometry
 A repository for the winners of the NASA Mars Spectrometry challenge, in which competitors help NASA scientists identify the chemical composition of rock and soil samples for Mars planetary science.
 
-[<img src='https://s3.amazonaws.com/drivendata-public-assets/logo-white-blue.png' width='600'>](https://www.drivendata.org/)
+[<img src='https://drivendata-public-assets.s3.amazonaws.com/nasa-mars-curiosity.jpg' width='600'>](https://www.drivendata.org/)
 <br><br>
 
 ![Banner Image](https://s3.amazonaws.com/drivendata-public-assets/opendri_mon_labeled.jpg)
@@ -15,7 +15,7 @@ Their models detect the presence of certain families of chemical compounds in da
 
 ## What's in this Repository
 
-This repository contains code from winning competitors in the [Competition name](https://www.drivendata.org/competitions/<https://www.drivendata.org/competitions/93/nasa-mars-spectrometry/>) DrivenData challenge.
+This repository contains code from winning competitors in the [Mars Spectrometry: Detect Evidence for Past Habitability](https://www.drivendata.org/competitions/<https://www.drivendata.org/competitions/93/nasa-mars-spectrometry/>) DrivenData challenge.
 
 **Winning code for other DrivenData competitions is available in the [competition-winners repository](https://github.com/drivendataorg/competition-winners).**
 
@@ -29,4 +29,4 @@ Place |Team or User | Public Score | Private Score | Summary of Model
 
 Additional solution details can be found in the `reports` folder inside the directory for each submission.
 
-**Benchmark Blog Post: ["Mars Spectrometry: Detect Evidence for Past Habitability"](<https://www.drivendata.co/blog/mars-spectrometry-benchmark/>)**
+**Benchmark Blog Post: [Mars Spectrometry: Detect Evidence for Past Habitability](<https://www.drivendata.co/blog/mars-spectrometry-benchmark/>)**
