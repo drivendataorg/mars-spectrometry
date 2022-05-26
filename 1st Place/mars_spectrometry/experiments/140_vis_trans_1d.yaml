@@ -1,0 +1,46 @@
+###################
+## Model options
+model_params:
+  model_type: "models_cls"
+  model_cls: "VisTrans1D"
+  embed_dim: 1024
+  depth: 3
+  num_heads: 32
+  drop_rate: 0.2
+
+dataset_params:
+  temp_step: 12
+  temp_query_range: 12
+  prob_smooth: 12
+  he_scale: 0.1
+  min_clip: 0.0001
+  log_space: True
+  norm_to_one: True
+  mz_var: 0.5
+
+###################
+## Data loader options
+train_data_loader:
+  batch_size: 16
+  num_workers: 4
+
+val_data_loader:
+  batch_size: 16
+  num_workers: 4
+
+test_data_loader:
+  batch_size: 2
+  num_workers: 4
+
+###################
+## Train params
+train_params:
+  nb_epochs: 1120
+  optimizer: adamW
+  scheduler: CosineAnnealingWarmRestarts
+  scheduler_period: 16
+  scheduler_t_mult: 1.41421
+  initial_lr: 0.00005
+  save_period: 5
+  grad_clip: 64
+  labels_smooth: 0.001

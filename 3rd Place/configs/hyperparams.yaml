@@ -1,0 +1,27 @@
+
+lgb_base_params:
+  n_estimators: 1500
+  learning_rate: 0.05
+  colsample_bytree: 0.9
+  num_leaves: 311
+  max_depth: -1
+  max_bin: 32
+  min_child_samples: 50
+  reg_lambda: 1
+
+lgb_meta_params:
+  n_estimators: 1500
+  learning_rate: 0.05
+  colsample_bytree: 0.9
+  num_leaves: 311
+  max_depth: -1
+  max_bin: 32
+  min_child_samples: 20
+  reg_lambda: 20
+
+catboost_meta_params:
+  n_estimators: 1500
+  learning_rate: 0.02
+  rsm: 0.9
+  max_depth: 3
+  reg_lambda: 1
