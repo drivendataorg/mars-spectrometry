@@ -1,10 +1,10 @@
 # mars-spectrometry
 A repository for the winners of the NASA Mars Spectrometry challenge, in which competitors help NASA scientists identify the chemical composition of rock and soil samples for Mars planetary science.
 
-[<img src='https://drivendata-public-assets.s3.amazonaws.com/nasa-mars-curiosity.jpg' width='600'>](https://www.drivendata.org/)
+[<img src='https://s3.amazonaws.com/drivendata-public-assets/logo-white-blue.png' width='600'>](https://www.drivendata.org/)
 <br><br>
 
-![Banner Image](https://s3.amazonaws.com/drivendata-public-assets/opendri_mon_labeled.jpg)
+![Banner Image](https://drivendata-public-assets.s3.amazonaws.com/nasa-mars-curiosity.jpg)
 
 # <Mars Spectrometry: Detect Evidence for Past Habitability>
 
