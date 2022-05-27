@@ -1,9 +1,9 @@
 Title: Meet the winners of the Mars Spectrometry: Detect Evidence for Past Habitability
 Date: 2022-05-30
 Slug: mars-challenge-winners
-Authors: Isha Shah
+Authors: Isha Shah, Jay Qi
 Tags: competition, winners, technical
-Summary: Meet the minds behind the top models for identifying the chemical composition of soil samples using mass spectrometry! Identifying the compounds within these samples can help scientists understand the past habitability of Mars.
+Summary: Meet the minds behind the top models for identifying the chemical composition of planetary soil samples using mass spectrometry! Identifying the compounds within these samples will help scientists understand the past habitability of Mars.
 Image: /images/nasa-mars-curiosity.png
 Banner: /images/nasa-mars-curiosity.png
 
@@ -19,16 +19,15 @@ Banner: /images/nasa-mars-curiosity.png
 
 ### Motivation
 
-
-NASA missions like the Curiosity and Perseverance rovers carry a rich array of instruments suited to collect data and build evidence towards answering this question. One particularly powerful capability they have is collecting rock and soil samples and taking measurements that can be used to determine their chemical makeup. These chemical characteristics can indicate whether the environment had livable conditions in the past.
+**Did Mars ever have livable environmental conditions?** NASA missions like the Curiosity and Perseverance rovers carry a rich array of instruments suited to collect data and build evidence towards answering this question. One particularly powerful capability they have is collecting rock and soil samples and taking measurements that can be used to determine their chemical makeup. These chemical characteristics can indicate whether the environment had livable conditions in the past.
 
 When scientists on Earth receive sample data from the rover, they must rapidly analyze them and make difficult inferences about the chemistry in order to prioritize the next operations and send those instructions back to the rover. In an ideal world, scientists would be to deploy sufficiently powerful methods onboard rovers to autonomously guide science operations and reduce reliance on a "ground-in-the-loop" control operations model.
 
 The goal of the [Mars Spectrometry Challenge](https://www.drivendata.org/competitions/93/nasa-mars-spectrometry/>) was to to build a model to automatically analyze mass spectrometry data collected for Mars exploration in order to help scientists in their analysis of understanding the past habitability of Mars. **Improving methods for analyzing planetary data helps scientists more quickly and effectively conduct mission operations and maximize scientific learnings as they move toward this ideal.**
 
 <div align="center">
-<img src="/images/depth_side_by_side_magma_r.jpg">
-<p><em><i>Left:</i> An image of a chimpanzee from a camera trap. <i>Right:</i> The depth mask generated for the image by the monodepth2 model available on <a href="https://github.com/nianticlabs/monodepth2#monodepth2">GitHub</a>.</em></p>
+<img src="https://drivendata-public-assets.s3.amazonaws.com/nasa-mars-curiosity.jpg">
+<p><em><i>The NASA Mars Curiosity rover.</i></em></p>
 </div>
 
 
@@ -40,32 +39,26 @@ Over the course of the competition, participants tested over 600 solutions and w
 
 
 <div align="center">
-<img src="/images/deep-chimpact-maes.png" alt="Bar chart of the four winning solutions and the benchmark.">
+<img src="https://drivendata-public-assets.s3.amazonaws.com/nasa-mars-results.png" alt="Bar chart of the three winning solutions.">
 </div>
 
-```
-One of the most recent studies applying machine learning to depth estimation, [Overcoming the Distance Estimation Bottleneck in Estimating Animal Abundance with Camera Traps](https://arxiv.org/abs/2105.04244) (2021), used monocular depth estimation to acheive a mean absolute error of 1.85 m. [Mean absolute error](https://www.drivendata.org/competitions/82/competition-wildlife-video-depth-estimation/page/391/#metric) (MAE) measures the magnitude of differences between estimated values and ground truth values. The method relied on a series of reference videos that required field researchers to travel to and visually document distances at each camera trap location.
+Overall, participants far outperformed the benchmark solution, with 446 out of 556 submissions besting the benchmark score. The log-loss established by the benchmark was 0.324 across all 10 compounds; our top performers achieved log-loss scores of 0.092, 0.116, and 0.119.
 
-Competitors were not provided with reference videos to more fully automate the time-intensive process. But our winners were not deterred! **The top-scoring solutions improved on the state-of-the-art method, with the top model achieving an MAE of 1.62.** These innovative models could help make depth estimation more accessible to conservationists around the world, even those without the time or resources to create reference videos.
+Competitors had a unique challenge when it came to the data on which their performance would be evaluated. Although most of the planetary soil analysis data available to scientists and our competitors is from commercial testbeds, which is cleaner, the ultimate goal of this mass spectrometry analysis is to produce a model that can perform as well on planetary soil sample data, which is scarcer and noisier. Therefore, a small portion of the training dataset contained samples from the SAM tested, a replica of the Sample Analysis at Mars (SAM) instrument suite onboard the Curiosity rover.
 
-Moreover, the winning approaches were able to predict distance much more accurately in general when the animal was closer to the camera trap. This is important for conservation applications since accurate depth for closer animals matters more than for those farther away when using distance sampling to estimate population sizes. For this dataset, closer animals are also much more common than animals farther away; only about 8% of the images show an animal 15 meters away or farther.
-```
+The test set contained more samples from the SAM testbed than the training set, which made it especially important for competitors to avoid overfitting in order to achieve a good score. The bonus prize was awarded by a judging panel of subject matter experts, who reviewed solution write-ups by the five competitors who performed best on the SAM testbed data for technical merit and potential for application to future data.
 
-<div align="center">
-<img src="/images/deep-chimpact-distancexmae.png" alt="Line graphs of mean absolute error vs. distance from the camera trap showing that error increases as distance increases.">
-</div>
+To achieve these results, the winners brought a wide variety of creative strategies to this task! Below are a few common approaches across solutions.
 
-To achieve these results, the winners brought a wide variety of creative strategies to this task! Below are a few of the takeaways across solutions.
-
-- **Feature engineering**: There was a distinction between the first place winner, who converted each mass spectrogram as a 2D image (temperature vs. m/z values), and the second and third place winners, engineered a variety of features to represent ion abundances across m/z and temperature. The second-place winner used area under the curve, peak value, peak-to-average, peak temperatures, width of peak, jitter, and then various statistics on the top three peaks, while the third place winner used the maximum temperature at the highest abundance, temperature range, and top 10 abundance values, among others.
-
-- **Neural net-based models**: The first- and second-place winners used various net-based models, with the first place winner using CNNs and RNNs as a part of his ensemble, and the second-place winner using 2 Conv1d modules.
-
-- **LGBM**: Both the second- and third-place models used LightGBM as one of the ensembled models, with the third-place winner using the outcome of the LGBM to a second-round model (catboost) in order to use information about the presence or absence of one compound to provide information about the presence or absence of others.
+- **An emphasis on feature engineering**: There was a distinction between the first place winner, who converted each mass spectrogram as a 2D image (temperature vs. m/z values), and the second and third place winners, engineered a variety of features to represent ion abundances across m/z and temperature. The second-place winner used area under the curve, peak value, peak-to-average, peak temperatures, width of peak, jitter, and then various statistics on the top three peaks, while the third place winner used the maximum temperature at the highest abundance, temperature range, and top 10 abundance values, among others.
 
 - **Augmentation**: Both the first and second place winner used some form of augmentation. The first place winner used a few forms of image augmentation to represent a single sample 16 times, and the second place winner injected random noise using light Gaussian noise, feature dropout, row dropout, and other forms of augmentation.
 
 - **Ensembling**: All of the winning solutions used some form of ensembling. Many trained multiple different types of deep learning model backbones. Some trained the same model backbone multiple times on different subsets, or "folds", of the data. Ensembling, particularly with folds, can help avoid overfitting a model on the training data.
+
+<!-- - **Neural net-based models**: The first- and second-place winners used various net-based models, with the first place winner using CNNs and RNNs as a part of his ensemble, and the second-place winner using 2 Conv1d modules.
+
+- **LGBM**: Both the second- and third-place models used LightGBM as one of the ensembled models, with the third-place winner using the outcome of the LGBM to a second-round model (catboost) in order to use information about the presence or absence of one compound to provide information about the presence or absence of others. -->
 
 **Let's get to know our winners and how they became chemical analysis experts!** You can also dive into their open source solutions in the competition winners repo on [Github](https://github.com/drivendataorg/mars-spectrometry).
 
@@ -116,13 +109,13 @@ I represented the mass spectrogram as a 2D image (temperature vs m/z values) use
 
 ### David Lander
 
-<!-- <img src="/images/geopose-4th-kbrodt.jpg" style="height:175px"> -->
+<!-- <img src="/images/davidlanderprofilepic.jpg" style="height:175px"> -->
 
 **Place:** 2nd Place
 
 **Prize:** $7,500
 
-**Hometown:** 
+**Hometown:** \[insert hometown here\]
 
 **Username:** [_NQ_](https://www.drivendata.org/users/_NQ_/)
 
@@ -134,7 +127,7 @@ The best performing architecture was a neural network with 2 Conv1d modules, ope
 
 The network inputs are the first 100 m/z channels, with temperature binned into 25 degree increments. Temperatures included are roughly 100 to 1100 degrees, with random noise applied to produce a diverse set of models.
 
-All Conv1d modules are kernel 3, stride 2, and the first layer involves dilations of 1, 2, 5, 10, 20, 50, and 100, with zero padding. All blocks use Group Normalization, Dropout (~0.1), and Random ReLU (~1/3 to ~1/8 negative slope), with final layer dropout of 0.5.
+All Conv1d modules are kernel 3, stride 2, and the first layer involves dilations of 1, 2, 5, 10, 20, 50, and 100, with zero padding. All blocks use Group Normalization, Dropout (about 0.1), and Random ReLU (about 1/3 to 1/8 negative slope), with final layer dropout of 0.5.
 
 Three different input scalings are used:
  - divide by sum of all m/z values at a given temperature (best)
