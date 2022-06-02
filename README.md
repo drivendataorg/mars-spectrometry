@@ -21,11 +21,11 @@ This repository contains code from winning competitors in the [Mars Spectrometry
 
 ## Winning Submissions
 
-Place |Team or User | Public Score | Private Score | Summary of Model
+Place |Team or User | Private Score | Summary of Model
 --- | --- | ---   | ---   | ---
-1   | dmytro |	0.019 | 0.092 | Represented the mass spectrogram as a 2D image (temperature vs m/z values) used as an input to CNN, RNN or transformer-based models. The diverse set of preprocessing configurations and models helped to achieve the diverse ensemble of models.
-2   | _NQ\_ | 0.106 | 0.116 | Feature engineering includes scaling m/z channels and area under the curve, peak value, peak width, and others. A LGBM model trained with these features ensembled with a neural network with 2 Conv1d modules, operating over temperature, followed by a linear layer across m/z channels and then a multi-target classifier gave the best performance.
-3   | devnikhilmishra | 0.020 | 0.119 | Converted the multilabel problem into a binary classification problem. Used LightGBM k-fold ensemble model to get the initial predictions, then fed these predictions along with top 5k features to a 31 fold ensemble, catboost model  (which acted like a meta model)
+1   | dmytro | 0.092 | Represented the mass spectrogram as a 2D image (temperature vs m/z values) used as an input to CNN, RNN or transformer-based models. The diverse set of preprocessing configurations and models helped to achieve the diverse ensemble of models. This model also won the Bonus prize for its strong performance on SAM testbed data and its promise for application as judged by a panel of NASA scientists. Further details can be found in the write-up in the winner's repo.
+2   | \_NQ\_ | 0.116 | Feature engineering includes scaling m/z channels and area under the curve, peak value, peak width, and others. A LGBM model trained with these features ensembled with a neural network with 2 Conv1d modules, operating over temperature, followed by a linear layer across m/z channels and then a multi-target classifier gave the best performance.
+3   | devnikhilmishra | 0.119 | Converted the multilabel problem into a binary classification problem. Used LightGBM k-fold ensemble model to get the initial predictions, then fed these predictions along with top 5k features to a 31 fold ensemble, catboost model  (which acted like a meta model)
 
 Additional solution details can be found in the `reports` folder inside the directory for each submission.
 
