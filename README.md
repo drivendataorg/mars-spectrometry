@@ -1,6 +1,3 @@
-# mars-spectrometry
-A repository for the winners of the [NASA Mars Spectrometry challenge](https://mars.drivendata.org/), in which competitors help NASA scientists identify the chemical composition of rock and soil samples for Mars planetary science.
-
 [<img src='https://s3.amazonaws.com/drivendata-public-assets/logo-white-blue.png' width='600'>](https://www.drivendata.org/)
 <br><br>
 
