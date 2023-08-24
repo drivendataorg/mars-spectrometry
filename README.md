@@ -12,7 +12,7 @@ Their models detect the presence of certain families of chemical compounds in da
 
 ## What's in this Repository
 
-This repository contains code from winning competitors in the [Mars Spectrometry: Detect Evidence for Past Habitability](https://www.drivendata.org/competitions/93/nasa-mars-spectrometry/) DrivenData challenge.
+This repository contains code from winning competitors in the [Mars Spectrometry: Detect Evidence for Past Habitability](https://www.drivendata.org/competitions/93/nasa-mars-spectrometry/) DrivenData challenge. Code for all  winning solutions are open source under the MIT License.
 
 **Winning code for other DrivenData competitions is available in the [competition-winners repository](https://github.com/drivendataorg/competition-winners).**
 
@@ -27,3 +27,4 @@ Place | Team or User | Private Score | Summary of Model
 Additional solution details can be found in the `reports` folder inside the directory for each submission.
 
 **Benchmark Blog Post: [Mars Spectrometry: Detect Evidence for Past Habitability](<https://www.drivendata.co/blog/mars-spectrometry-benchmark/>)**
+
